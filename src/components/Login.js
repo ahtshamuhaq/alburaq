@@ -1,11 +1,32 @@
 import React, { useState } from "react";
 import lg from "./../pictures/lg.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { isLogin, login } from "../services/api/userAuth";
 const Login = () => {
+  const navigate = useNavigate();
   const [isLoginVisible, setIsLoginVisible] = useState(true);
 
   const handleLoginButtonClick = () => {
     setIsLoginVisible(false);
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    var { email, password } = e.target.elements;
+    email = email.value;
+    password = password.value;
+
+    console.log("clicked", email, password, process.env.REACT_APP_API_URL);
+    try {
+      const response = await login(email, password);
+      if (response.data.success) {
+        localStorage.setItem("user", JSON.stringify(response.data.data));
+        setIsLoginVisible(false);
+        navigate("/home");
+      }
+    } catch (err) {
+      console.log(err);
+    }
   };
   return (
     <div>
@@ -25,7 +46,7 @@ const Login = () => {
                           <img src={lg} style={{ width: "185px" }} alt="logo" />
                         </div>
 
-                        <form>
+                        <form onSubmit={handleSubmit}>
                           <p>Please login to your account</p>
 
                           <div className="form-outline mb-4">
