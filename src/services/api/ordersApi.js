@@ -33,7 +33,11 @@ export const createOrder = (data) => {
   });
 };
 
+<<<<<<< HEAD
 export const getOrders = (id: number) => {
+=======
+export const getOrders = (id) => {
+>>>>>>> 9627adc3a7341bc80273d70de2e6902fe6235633
   return new Promise((resolve, reject) => {
     dataServer
       .get(`/user/get/orders/${userId}`, {
@@ -47,7 +51,11 @@ export const getOrders = (id: number) => {
   });
 };
 
+<<<<<<< HEAD
 export const downloadOrdersFile = (fileName: string) => {
+=======
+export const downloadOrdersFile = (fileName) => {
+>>>>>>> 9627adc3a7341bc80273d70de2e6902fe6235633
   console.log("user is ", user);
   return new Promise((resolve, reject) => {
     dataServer

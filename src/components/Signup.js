@@ -146,15 +146,15 @@ const Signup = () => {
                           Subscribe to our newsletter
                         </label>
                       </div>
-                      {/* <Link to={"/Home"}> */}
-                      <button
-                        type="submit"
-                        // onClick={handleSignupButtonClick}
-                        className="btn btn-primary text-white btn-block mb-4"
-                      >
-                        Sign up
-                      </button>
-                      {/* </Link> */}
+                      <Link to={"/Home"}>
+                        <button
+                          type="submit"
+                          onClick={handleSignupButtonClick}
+                          className="btn btn-primary text-white btn-block mb-4"
+                        >
+                          Sign up
+                        </button>
+                      </Link>
                     </form>
                   </div>
                 </div>
