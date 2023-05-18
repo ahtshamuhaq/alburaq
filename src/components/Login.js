@@ -53,6 +53,7 @@ const Login = () => {
                             <input
                               type="email"
                               id="form2Example11"
+                              name="email"
                               className="form-control"
                               placeholder="Phone number or email address"
                             />
@@ -64,6 +65,7 @@ const Login = () => {
                           <div className="form-outline mb-4">
                             <input
                               type="password"
+                              name="password"
                               id="form2Example22"
                               className="form-control"
                             />
@@ -73,15 +75,15 @@ const Login = () => {
                           </div>
 
                           <div className="text-center pt-1 mb-5 pb-1">
-                            <Link to={"/Home"}>
+                            {/* <Link to={"/Home"}> */}
                               <button
-                                onClick={handleLoginButtonClick}
+                                // onClick={handleLoginButtonClick}
                                 className="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3"
-                                type="button"
+                                type="submit"
                               >
                                 Log in
                               </button>
-                            </Link>
+                            {/* </Link> */}
                             <a className="text-muted" href="#!">
                               Forgot password?
                             </a>

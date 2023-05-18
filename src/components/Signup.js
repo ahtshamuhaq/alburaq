@@ -1,11 +1,41 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
+import { RegisterUser } from "../services/api/userAuth";
 
 const Signup = () => {
+  const navigate = useNavigate();
   const [isLoginVisible, setIsLoginVisible] = useState(true);
   const handleSignupButtonClick = () => {
     setIsLoginVisible(false);
   };
+
+  async function handleRegister(e) {
+    e.preventDefault();
+    var { email, password, firstName, lastName } = e.target.elements;
+    email = email.value;
+    password = password.value;
+    firstName = firstName.value;
+    lastName = lastName.value;
+    console.log("hello");
+    console.log("something else");
+    try {
+      console.log("coming here", email, password, firstName, lastName);
+
+      // setEmail(email);
+      const response = await RegisterUser({
+        firstName,
+        lastName,
+        email,
+        password,
+      });
+      if (response.data.success) {
+        navigate(`/verifyotp`, { state: { email } });
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  }
   return (
     <div>
       {isLoginVisible && (
@@ -43,7 +73,7 @@ const Signup = () => {
 
                 <div className="card bg-glass">
                   <div className="card-body px-4 py-5 px-md-5">
-                    <form>
+                    <form onSubmit={handleRegister}>
                       <div className="row">
                         <div className="col-md-6 mb-4">
                           <div className="form-outline">
@@ -51,6 +81,8 @@ const Signup = () => {
                               type="text"
                               id="form3Example1"
                               className="form-control"
+                              name="firstName"
+                              required="true"
                             />
                             <label className="form-label" for="form3Example1">
                               First name
@@ -63,6 +95,8 @@ const Signup = () => {
                               type="text"
                               id="form3Example2"
                               className="form-control"
+                              name="lastName"
+                              required="true"
                             />
                             <label className="form-label" for="form3Example2">
                               Last name
@@ -76,6 +110,8 @@ const Signup = () => {
                           type="email"
                           id="form3Example3"
                           className="form-control"
+                          name="email"
+                          required="true"
                         />
                         <label className="form-label" for="form3Example3">
                           Email address
@@ -87,6 +123,8 @@ const Signup = () => {
                           type="password"
                           id="form3Example4"
                           className="form-control"
+                          name="password"
+                          required="true"
                         />
                         <label className="form-label" for="form3Example4">
                           Password
@@ -108,15 +146,15 @@ const Signup = () => {
                           Subscribe to our newsletter
                         </label>
                       </div>
-                      <Link to={"/Home"}>
-                        <button
-                          type="submit"
-                          onClick={handleSignupButtonClick}
-                          className="btn btn-primary text-white btn-block mb-4"
-                        >
-                          Sign up
-                        </button>
-                      </Link>
+                      {/* <Link to={"/Home"}> */}
+                      <button
+                        type="submit"
+                        // onClick={handleSignupButtonClick}
+                        className="btn btn-primary text-white btn-block mb-4"
+                      >
+                        Sign up
+                      </button>
+                      {/* </Link> */}
                     </form>
                   </div>
                 </div>

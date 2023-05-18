@@ -17,6 +17,7 @@ import Logout from "./components/Logout";
 import Signup from "./components/Signup";
 import Paydet from "./components/Paydet";
 import Paymentsmethod from "./components/Paymentsmethod";
+import OTP from "./components/Otp"
 function App() {
   return (
     <div>
@@ -38,6 +39,7 @@ function App() {
         <Route path="/Signup" element={<Signup />} />
         <Route path="/Paydet" element={<Paydet />} />
         <Route path="/Paymentsmethod" element={<Paymentsmethod />} />
+        <Route path="/verifyotp" element={<OTP />} />
       </Routes>
     </div>
   );
