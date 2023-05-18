@@ -30,7 +30,7 @@ const Signup = () => {
         password,
       });
       if (response.data.success) {
-        navigate(`/verifyotp`, { state: { email } });
+        navigate(`/Home`, { state: { email } });
       }
     } catch (err) {
       console.log(err);

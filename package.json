@@ -25,7 +25,7 @@
     "react-modal": "^3.16.1",
     "react-payment": "^0.1.8",
     "react-router-dom": "^6.11.1",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1",
     "react-whatsapp": "^0.3.0",
     "tw-elements": "^1.0.0-beta2",
     "web-vitals": "^2.1.4",

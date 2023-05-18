@@ -18,7 +18,7 @@ const Otp = () => {
       console.log("Email");
       const response = await verifyOtp(otp, email);
       if (response.data.success) {
-        navigate("/login");
+        navigate("/Home");
       } else {
         console.log("response is ", response);
       }
