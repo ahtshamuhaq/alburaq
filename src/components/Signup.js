@@ -108,7 +108,7 @@ const Signup = () => {
                           Subscribe to our newsletter
                         </label>
                       </div>
-                      <Link to={"/Home"}>
+                      <Link to={"/Otp"}>
                         <button
                           type="submit"
                           onClick={handleSignupButtonClick}
